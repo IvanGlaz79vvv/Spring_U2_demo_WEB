@@ -30,8 +30,11 @@ public class TestController {
 
     @PostMapping("/setAppleName")
     public Boolean setAppleName(@RequestBody() Map<String, Object> body) {
-        System.out.println(body);
-        return true;
+        if (body.containsKey("name")) {
+            appleName = (String) body.get("name");
+            return true;
+        }
+        return false;
     }
 
 }
